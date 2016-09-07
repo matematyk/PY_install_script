@@ -4,6 +4,13 @@
 PASSWORD='coderslab'
 HOSTNAME='student.edu'
 
+echo "Witaj w CodersLab!"
+echo "Ten skrypt zaktualizuje Twój system, zainstaluje kilka niezbędnych programów,"
+echo "oraz skonfiguruje bazę danych MySQL. W tym czasie na ekranie pojawi się wiele"
+echo "komunikatów. ABY INSTALACJA SIĘ POWIODŁA MUSISZ MIEĆ DOSTĘP DO INTERNETU"
+echo "W TRAKCIE TRWANIA INSTALACJI!"
+read -n1 -r -p "Naciśnij dowolny klawisz, by kontynuować."
+
 # pausing updating grub as it might triger ui
 sudo apt-mark hold grub*
  
