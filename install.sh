@@ -61,14 +61,6 @@ echo "Dla pewności -- ponownie aktualizuję system..."
 sudo apt update -y
 sudo apt upgrade -y
 
-
-# TODO: install Eclipse
-# install NetBeans
-# wget http://download.netbeans.org/netbeans/8.1/final/bundles/netbeans-8.1-php-linux-x64.sh
-# chmod 777 ./netbeans-8.1-php-linux-x64.sh
-# ./netbeans-8.1-php-linux-x64.sh --silent
-# rm ./netbeans-8.1-php-linux-x64.sh
-
 echo
 echo "Instaluję Eclipse"
 wget -O ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz http://mirror.switch.ch/eclipse/technology/epp/downloads/release/neon/R/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz
