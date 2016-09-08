@@ -14,21 +14,23 @@ echo "ABY INSTALACJA SIĘ POWIODŁA MUSISZ MIEĆ DOSTĘP DO INTERNETU W TRAKCIE 
 echo "INSTALACJI!"
 read -n1 -r -p "Naciśnij dowolny klawisz, by kontynuować."
 
+mkdir ~/.coderslab
+
 # pausing updating grub as it might triger ui
 sudo apt-mark hold grub*
- 
+echo
 echo "Aktualizuję system..."
 
 # update / upgrade
 sudo apt update
 sudo apt -y upgrade
- 
+echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
 sudo apt install -y curl vim git virtualenv mysql-workbench openjdk-8-jre-headless
   
-
+echo
 echo "Instaluję bazę danych MySQL..."
 
 # install mysql and give password to installer
@@ -36,13 +38,15 @@ sudo debconf-set-selections <<< "mysql-server mysql-server/root_password passwor
 sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
 sudo apt install -y mysql-server
  
+echo
 echo "Instaluję serwer poczty Postfix..."
 
 # install postfix
 sudo debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
 sudo debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
-apt install -y postfix
+sudo apt install -y postfix
 
+echo
 echo "Tworzę katalog roboczy..."
 # creating and linkng Workspace
 sudo mkdir ~/workspace
@@ -51,7 +55,7 @@ sudo chmod 777 ~/workspace
 # sudo ln -s ~/Workspace /var/www/html
 sudo chmod 777 -R ~/workspace
 
-
+echo
 echo "Dla pewności -- ponownie aktualizuję system..."
 # update and upgrade all packages
 sudo apt update -y
@@ -64,9 +68,29 @@ sudo apt upgrade -y
 # chmod 777 ./netbeans-8.1-php-linux-x64.sh
 # ./netbeans-8.1-php-linux-x64.sh --silent
 # rm ./netbeans-8.1-php-linux-x64.sh
-wget http://mirror.switch.ch/eclipse/technology/epp/downloads/release/neon/R/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz
-tar -zxvf eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz -C ~/
-chmod 777 -R ~/eclipse/
+
+echo
+echo "Instaluję Eclipse"
+wget -O ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz http://mirror.switch.ch/eclipse/technology/epp/downloads/release/neon/R/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz
+sudo tar -zxvf ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz -C /opt/
+rm ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz
+
+DESKTOP=$(cat <<EOF
+[Desktop Entry]
+Name=Eclipse
+Comment=IDE używane podczas kursu w CodersLab
+Exec=/opt/eclipse/eclipse
+Icon=/opt/eclipse/icon.xpm
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;Application
+EOF
+)
+touch ~/.coderslab/eclipse.desktop
+echo "${DESKTOP}" > ~/.coderslab/eclipse.desktop
+sudo cp ~/.coderslab/eclipse.desktop /usr/share/applications/eclipse.desktop
+rm ~/.coderslab/eclipse.desktop
 
 
 # unpausing updating grub
