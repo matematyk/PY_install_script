@@ -44,7 +44,6 @@ brew cask install mysqlworkbench
 
 pip3 install virtualenv
 
-brew cask install mysql-utilities
 brew cask install java
 
 echo
@@ -72,11 +71,7 @@ mysqladmin -u root password coderslab
 
 echo
 echo "Instaluję Eclipse"
-cd /tmp
-wget http://mirrors.nic.cz/eclipse/oomph/epp/neon/R2a/eclipse-inst-mac64.tar.gz
-tar -zxvf eclipse-inst-mac64.tar.gz
-
-sudo mv "Eclipse Installer.app" /Applications
+brew cask install eclipse-ide
 
 echo "#############################"
 echo "####INSTALACJA ZAKOŃCZONA####"
