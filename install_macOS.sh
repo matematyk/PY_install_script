@@ -36,10 +36,13 @@ echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
 brew tap caskroom/cask
-brew install brew-cask
+brew install caskroom/cask/brew-cask
+brew install homebrew/completions/brew-cask-completion
 
-brew install curl vim git python3
-pip3 install virtualenv mysql-workbench
+brew install curl vim git python3 wget
+brew cask install mysqlworkbench
+
+pip3 install virtualenv
 
 brew cask install mysql-utilities
 brew cask install java
