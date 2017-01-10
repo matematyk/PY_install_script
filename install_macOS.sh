@@ -39,7 +39,7 @@ brew tap caskroom/cask
 brew install brew-cask
 
 brew install curl vim git python3
-pip install virtualenv mysql-workbench
+pip3 install virtualenv mysql-workbench
 
 brew cask install mysql-utilities
 brew cask install java
@@ -55,9 +55,6 @@ echo
 echo "Tworzę katalog roboczy..."
 # creating and linkng Workspace
 sudo mkdir ~/workspace
-sudo chmod 777 ~/workspace
-# sudo rm -r /var/www/html
-# sudo ln -s ~/Workspace /var/www/html
 sudo chmod 777 -R ~/workspace
 
 echo
