@@ -62,27 +62,27 @@ sudo apt update -y
 sudo apt upgrade -y
 
 echo
-echo "Instaluję Eclipse"
-wget -O ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz http://mirror.switch.ch/eclipse/technology/epp/downloads/release/neon/R/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz
-sudo tar -zxvf ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz -C /opt/
-rm ~/.coderslab/eclipse-javascript-neon-R-linux-gtk-x86_64.tar.gz
+echo "Instaluję PyCharm"
+wget -O ~/.coderslab/pycharm-professional-2017.2.3.tar.gz https://download.jetbrains.com/python/pycharm-professional-2017.2.3.tar.gz
+sudo tar -zxvf ~/.coderslab/pycharm-professional-2017.2.3.tar.gz -C /opt/
+rm ~/.coderslab/pycharm-professional-2017.2.3.tar.gz
 
 DESKTOP=$(cat <<EOF
 [Desktop Entry]
-Name=Eclipse
+Name=PyCharm
 Comment=IDE używane podczas kursu w CodersLab
-Exec=/opt/eclipse/eclipse
-Icon=/opt/eclipse/icon.xpm
+Exec=/opt/pycharm-2017.2.3/bin/pycharm.sh
+Icon=/opt/pycharm-2017.2.3/bin/pycharm.png
 Terminal=false
 Type=Application
 StartupNotify=true
 Categories=Utility;Application
 EOF
 )
-touch ~/.coderslab/eclipse.desktop
-echo "${DESKTOP}" > ~/.coderslab/eclipse.desktop
-sudo cp ~/.coderslab/eclipse.desktop /usr/share/applications/eclipse.desktop
-rm ~/.coderslab/eclipse.desktop
+touch ~/.coderslab/pycharm.desktop
+echo "${DESKTOP}" > ~/.coderslab/pycharm.desktop
+sudo cp ~/.coderslab/pycharm.desktop /usr/share/applications/pycharm.desktop
+rm ~/.coderslab/pycharm.desktop
 
 
 # unpausing updating grub
