@@ -61,12 +61,6 @@ echo "Dla pewności -- ponownie aktualizuję system..."
 sudo apt update -y
 sudo apt upgrade -y
 
-echo
-echo "Instaluję PyCharm"
-wget -O ~/.coderslab/pycharm-professional-2017.2.3.tar.gz https://download.jetbrains.com/python/pycharm-professional-2017.2.3.tar.gz
-sudo tar -zxvf ~/.coderslab/pycharm-professional-2017.2.3.tar.gz -C /opt/
-rm ~/.coderslab/pycharm-professional-2017.2.3.tar.gz
-
 DESKTOP=$(cat <<EOF
 [Desktop Entry]
 Name=PyCharm
