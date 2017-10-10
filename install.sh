@@ -8,7 +8,7 @@ echo
 echo "Witaj w CodersLab!"
 echo
 echo "Ten skrypt zaktualizuje Twój system, zainstaluje kilka niezbędnych programów,"
-echo "których będziesz potrzebować podczas kursu oraz skonfiguruje bazę danych MySQL."
+echo "których będziesz potrzebować podczas kursu oraz skonfiguruje bazę danych PostgreSQL."
 echo "W tym czasie na ekranie pojawi się wiele komunikatów."
 echo "ABY INSTALACJA SIĘ POWIODŁA MUSISZ MIEĆ DOSTĘP DO INTERNETU W TRAKCIE TRWANIA "
 echo "INSTALACJI!"
@@ -31,20 +31,13 @@ echo "Instaluję narzędzia systemowe..."
 sudo apt install -y curl vim git virtualenv mysql-workbench openjdk-8-jre-headless
   
 echo
-echo "Instaluję bazę danych MySQL..."
+echo "Instaluję bazę danych PostgreSQL..."
 
 # install mysql and give password to installer
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
-sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
-sudo apt install -y mysql-server
- 
-echo
-echo "Instaluję serwer poczty Postfix..."
-
-# install postfix
-sudo debconf-set-selections <<< "postfix postfix/mailname string $HOSTNAME"
-sudo debconf-set-selections <<< "postfix postfix/main_mailer_type string 'Internet Site'"
-sudo apt install -y postfix
+# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
+# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
+# sudo apt install -y mysql-server
+sudo apt-get install postgresql postgresql-contrib
 
 echo
 echo "Tworzę katalog roboczy..."
