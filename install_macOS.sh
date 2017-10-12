@@ -69,10 +69,6 @@ echo
 echo "Zmieniam hasło root dla MySQL na coderslab..."
 mysqladmin -u root password coderslab
 
-echo
-echo "Instaluję Eclipse"
-brew cask install eclipse-ide
-
 echo "#############################"
 echo "####INSTALACJA ZAKOŃCZONA####"
 echo "#############################"
