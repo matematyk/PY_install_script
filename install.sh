@@ -44,6 +44,14 @@ sudo chmod 777 ~/workspace
 # sudo ln -s ~/Workspace /var/www/html
 sudo chmod 777 -R ~/workspace
 
+# PyCharm
+echo
+echo "Instaluję PyCharm"
+# https://download.jetbrains.com/python/pycharm-professional-2017.2.3.tar.gz
+wget -O ~/.coderslab/pycharm-professional-2017.2.3.tar.gz https://download.jetbrains.com/python/pycharm-professional-2017.2.3.tar.gz
+sudo tar -zxvf ~/.coderslab/pycharm-professional-2017.2.3.tar.gz -C /opt/
+rm ~/.coderslab/pycharm-professional-2017.2.3.tar.gz
+
 echo
 echo "Dla pewności -- ponownie aktualizuję system..."
 # update and upgrade all packages
