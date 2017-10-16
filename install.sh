@@ -28,16 +28,12 @@ echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
-sudo apt install -y curl vim git virtualenv mysql-workbench openjdk-8-jre-headless
+sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless
   
 echo
 echo "Instaluję bazę danych PostgreSQL..."
-
-# install mysql and give password to installer
-# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $PASSWORD"
-# sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $PASSWORD"
-# sudo apt install -y mysql-server
-sudo apt-get install postgresql postgresql-contrib
+sudo apt-get install -y postgresql postgresql-contrib postgresql-client pgadmin3
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
 
 echo
 echo "Tworzę katalog roboczy..."
