@@ -40,8 +40,6 @@ echo "Tworzę katalog roboczy..."
 # creating and linkng Workspace
 sudo mkdir ~/workspace
 sudo chmod 777 ~/workspace
-# sudo rm -r /var/www/html
-# sudo ln -s ~/Workspace /var/www/html
 sudo chmod 777 -R ~/workspace
 
 # PyCharm
