@@ -50,11 +50,20 @@ echo
 echo "Instaluję PostgreSQL..."
 # install pgsql
 brew install postgresql
-pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+
+# start service
+brew services start postgresql
+
+# change password
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
 
 # ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+
+
+echo
+echo "Instaluję PyCharm"
+brew cask install pycharm
 
 echo
 echo "Tworzę katalog roboczy..."
