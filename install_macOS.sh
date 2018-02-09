@@ -40,18 +40,21 @@ brew install caskroom/cask/brew-cask
 brew install homebrew/completions/brew-cask-completion
 
 brew install curl vim git python3 wget
-brew cask install mysqlworkbench
+brew cask install pgadmin3
 
 pip3 install virtualenv
 
 brew cask install java
 
 echo
-echo "Instaluję MySQL 5.7..."
-# install mysql 5.7
-brew install mysql
-ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
+echo "Instaluję PostgreSQL..."
+# install pgsql
+brew install postgresql
+pg_ctl -D /usr/local/var/postgres start && brew services start postgresql
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
+
+# ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+# launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
 
 echo
 echo "Tworzę katalog roboczy..."
@@ -64,10 +67,6 @@ echo "Dla pewności -- ponownie aktualizuję system..."
 # update and upgrade all packages
 brew update
 brew upgrade
-
-echo
-echo "Zmieniam hasło root dla MySQL na coderslab..."
-mysqladmin -u root password coderslab
 
 echo "#############################"
 echo "####INSTALACJA ZAKOŃCZONA####"
