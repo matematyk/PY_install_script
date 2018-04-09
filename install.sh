@@ -27,6 +27,10 @@ sudo apt -y upgrade
 echo
 echo "Instaluję narzędzia systemowe..."
 
+# install energy management software
+sudo apt install tlp tlp-rdw preload
+sudo tlp start
+
 # install all used tools
 sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless
   
