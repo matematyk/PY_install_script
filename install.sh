@@ -28,11 +28,12 @@ echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
-sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless
+sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless tlp tlp-rdw preload
+sudo tlp start
   
 echo
 echo "Instaluję bazę danych PostgreSQL..."
-sudo apt-get install -y postgresql postgresql-contrib postgresql-client pgadmin3
+sudo apt install -y postgresql postgresql-contrib postgresql-client pgadmin3
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
 
 echo
