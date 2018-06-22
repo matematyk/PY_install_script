@@ -28,16 +28,17 @@ echo "Instaluję homebrew..."
 echo
 echo "Dodaje niezbędne repozytoria homebrew..."
 # add external taps
-brew tap homebrew/dupes
-brew tap homebrew/versions
-
+# brew tap homebrew/dupes #deprecated
+# brew tap homebrew/versions #deprecated
+brew tap homebrew/services
+brew tap homebrew/cask-versions
 echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
 brew tap caskroom/cask
-brew install caskroom/cask/brew-cask
-brew install homebrew/completions/brew-cask-completion
+# brew install caskroom/cask/brew-cask
+# brew install homebrew/completions/brew-cask-completion #deprecated
 
 brew install curl vim git python3 wget
 brew cask install pgadmin3
@@ -54,8 +55,11 @@ brew install postgresql
 # start service
 brew services start postgresql
 
+sleep 15
 # change password
-sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
+createuser postgres
+createdb coderslab
+psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
 
 # ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 # launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist
@@ -69,6 +73,7 @@ echo
 echo "Tworzę katalog roboczy..."
 # creating and linkng Workspace
 sudo mkdir ~/workspace
+sleep 3
 sudo chmod 777 -R ~/workspace
 
 echo
