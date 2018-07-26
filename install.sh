@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
- 
+
 # Use single quotes instead of double quotes to make it work with special-character passwords
 PASSWORD='coderslab'
 HOSTNAME='student.edu'
@@ -30,10 +30,10 @@ echo "Instaluję narzędzia systemowe..."
 # install all used tools
 sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless tlp tlp-rdw preload
 sudo tlp start
-  
+
 echo
 echo "Instaluję bazę danych PostgreSQL..."
-sudo apt install -y postgresql postgresql-contrib postgresql-client pgadmin3
+sudo apt install -y postgresql postgresql-contrib postgresql-client
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
 
 echo
