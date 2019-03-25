@@ -28,7 +28,8 @@ echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
-sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless tlp tlp-rdw preload
+sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless tlp tlp-rdw
+preload screen
 sudo tlp start
 
 echo

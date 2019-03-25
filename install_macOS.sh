@@ -40,7 +40,7 @@ brew tap caskroom/cask
 # brew install caskroom/cask/brew-cask
 # brew install homebrew/completions/brew-cask-completion #deprecated
 
-brew install curl vim git python3 wget
+brew install curl vim git python3 wget screen
 
 pip3 install virtualenv
 
