@@ -28,7 +28,8 @@ echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
-sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless tlp tlp-rdw
+sudo apt install -y curl vim git virtualenv openjdk-8-jre-headless tlp tlp-rdw python3-pip
+pip3 install --user pycodestyle termcolor
 preload screen
 sudo tlp start
 

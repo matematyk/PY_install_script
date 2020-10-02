@@ -42,7 +42,7 @@ brew tap caskroom/cask
 
 brew install curl vim git python3 wget screen
 
-pip3 install virtualenv
+pip3 install virtualenv termcolor pycodestyle
 
 brew cask install java
 
