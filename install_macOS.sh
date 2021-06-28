@@ -23,10 +23,11 @@ xcode-select --install
 echo
 echo "Instaluję homebrew..."
 # install brew package manager
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+echo -e '\nexport PATH=/opt/homebrew/bin:$PATH\n' >> ~/.zshrc
 
 echo
-echo "Dodaje niezbędne repozytoria homebrew..."
+echo "Dodaję niezbędne repozytoria homebrew..."
 # add external taps
 # brew tap homebrew/dupes #deprecated
 # brew tap homebrew/versions #deprecated
@@ -36,13 +37,13 @@ echo
 echo "Instaluję narzędzia systemowe..."
 
 # install all used tools
-brew tap caskroom/cask
+# brew tap caskroom/cask
 # brew install caskroom/cask/brew-cask
 # brew install homebrew/completions/brew-cask-completion #deprecated
 
 brew install curl vim git python3 wget screen
 
-pip3 install virtualenv termcolor pycodestyle
+pip3 install --user virtualenv termcolor pycodestyle
 
 brew cask install java
 
