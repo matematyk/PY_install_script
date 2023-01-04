@@ -40,7 +40,9 @@ echo "Instaluję narzędzia systemowe..."
 # brew tap caskroom/cask
 # brew install caskroom/cask/brew-cask
 # brew install homebrew/completions/brew-cask-completion #deprecated
-
+#fix problem with postgres
+git -C $(brew --repository homebrew/core) checkout master
+#end fix
 brew install curl vim git python3 wget screen
 
 pip3 install --user virtualenv termcolor pycodestyle
@@ -50,7 +52,7 @@ brew cask install java
 echo
 echo "Instaluję PostgreSQL..."
 # install pgsql
-brew install postgresql
+brew install postgresql@14
 
 # start service
 brew services start postgresql
