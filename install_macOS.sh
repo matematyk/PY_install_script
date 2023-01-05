@@ -69,7 +69,7 @@ psql -c "ALTER USER postgres WITH PASSWORD '${PASSWORD}';"
 
 echo
 echo "Instaluję PyCharm"
-brew cask install pycharm
+brew install --cask pycharm
 
 echo
 echo "Tworzę katalog roboczy..."
