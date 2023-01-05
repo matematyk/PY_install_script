@@ -26,6 +26,9 @@ echo "Instaluję homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 echo -e '\nexport PATH=/opt/homebrew/bin:$PATH\n' >> ~/.zshrc
 
+brew install git 
+git -C $(brew --repository homebrew/core) checkout master
+
 echo
 echo "Dodaję niezbędne repozytoria homebrew..."
 # add external taps
@@ -40,10 +43,7 @@ echo "Instaluję narzędzia systemowe..."
 # brew tap caskroom/cask
 # brew install caskroom/cask/brew-cask
 # brew install homebrew/completions/brew-cask-completion #deprecated
-#fix problem with postgres
-git -C $(brew --repository homebrew/core) checkout master
-#end fix
-brew install curl vim git python3 wget screen
+brew install curl vim python3 wget screen
 
 pip3 install --user virtualenv termcolor pycodestyle
 
